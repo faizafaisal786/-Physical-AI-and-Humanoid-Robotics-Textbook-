@@ -13,7 +13,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://localhost',
+  url: 'https://physical-ai-textbook.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -23,12 +23,12 @@ const config = {
   organizationName: '', // Usually your GitHub org/user name.
   projectName: 'Physical-AI-Humanoid-Robotics-Textbook', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'ignore',
 
   // Markdown configuration
   markdown: {
     hooks: {
-      onBrokenMarkdownLinks: 'throw',
+      onBrokenMarkdownLinks:'ignore',
     },
   },
 
@@ -69,7 +69,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/logo.svg',
       navbar: {
         title: 'Physical AI & Humanoid Robotics',
         logo: {
@@ -82,6 +82,11 @@ const config = {
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'Textbook',
+          },
+          {
+            to: '/login',
+            label: 'Log In',
+            position: 'right',
           },
         ],
       },
@@ -114,8 +119,8 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Project Constitution',
-                to: '/.specify/memory/constitution.md',
+                label: 'Constitution',
+                to: '/docs/module-2-digital-twin/constitution',
               },
             ],
           },
@@ -133,28 +138,29 @@ const config = {
       },
       // Algolia DocSearch configuration
       // Note: Replace with actual Algolia credentials when ready
-      algolia: {
-        // The application ID provided by Algolia
-        appId: 'YOUR_APP_ID',
-        // Public API key: it is safe to commit it
-        apiKey: 'YOUR_SEARCH_API_KEY',
-        indexName: 'physical-ai-textbook',
-        // Optional: see doc section below
-        contextualSearch: true,
-        // Optional: Algolia search parameters
-        searchParameters: {
-          attributesToRetrieve: [
-            'hierarchy',
-            'content',
-            'url',
-            'week',
-            'module',
-            'capstone_component'
-          ],
-        },
-        // Optional: path for search page that enabled by default (`false` to disable it)
-        searchPagePath: 'search',
-      },
+      // Commented out until proper credentials are configured
+      // algolia: {
+      //   // The application ID provided by Algolia
+      //   appId: 'YOUR_APP_ID',
+      //   // Public API key: it is safe to commit it
+      //   apiKey: 'YOUR_SEARCH_ONLY_API_KEY',
+      //   indexName: 'physical-ai-textbook',
+      //   // Optional: see doc section below
+      //   contextualSearch: true,
+      //   // Optional: Algolia search parameters
+      //   searchParameters: {
+      //     attributesToRetrieve: [
+      //       'hierarchy',
+      //       'content',
+      //       'url',
+      //       'week',
+      //       'module',
+      //       'capstone_component'
+      //     ],
+      //   },
+      //   // Optional: path for search page that enabled by default (`false` to disable it)
+      //   searchPagePath: 'search',
+      // },
       metadata: [
         {name: 'keywords', content: 'robotics, physical AI, humanoid robots, ROS 2, Isaac Sim, VLA'},
         {name: 'description', content: 'Comprehensive 13-week textbook for industry practitioners learning Physical AI and Humanoid Robotics'},

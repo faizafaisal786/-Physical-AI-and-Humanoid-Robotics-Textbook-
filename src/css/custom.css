@@ -864,3 +864,43 @@ a:hover {
   background-size: 1000px 100%;
   animation: shimmer 2s infinite;
 }
+
+/* Custom Auth Bar */
+.custom-auth-bar {
+  background: var(--ifm-color-primary-dark);
+  color: white;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.custom-auth-bar a {
+  color: white;
+  text-decoration: underline;
+  margin: 0 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.custom-auth-bar a:hover {
+  color: var(--ifm-color-primary-lightest);
+  text-decoration: none;
+}
+
+.custom-auth-bar button {
+  background: none;
+  border: none;
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 0 0.5rem;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.custom-auth-bar button:hover {
+  color: var(--ifm-color-primary-lightest);
+  text-decoration: none;
+}
+
+[data-theme='dark'] .custom-auth-bar {
+  background: var(--ifm-color-primary-darker);
+}

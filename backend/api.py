@@ -1,11 +1,13 @@
 import os
 import asyncio
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional, Dict
 from dotenv import load_dotenv
 import logging
+import jwt
+from datetime import datetime
 
 # Load environment variables
 load_dotenv()
@@ -24,6 +26,35 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# JWT configuration
+JWT_SECRET = os.getenv("JWT_SECRET", "fallback-secret-change-this")
+JWT_ALGORITHM = "HS256"
+
+def verify_token(token: str = None):
+    """Verify JWT token and return user info if valid"""
+    if not token:
+        return None
+
+    try:
+        payload = jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM])
+        return payload
+    except jwt.ExpiredSignatureError:
+        logger.warning("Token has expired")
+        return None
+    except jwt.InvalidTokenError:
+        logger.warning("Invalid token")
+        return None
+
+async def get_current_user(request: Request):
+    """Get current user from request headers"""
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return None
+
+    token = auth_header.replace("Bearer ", "")
+    user = verify_token(token)
+    return user
+
 # Add CORS middleware for development
 app.add_middleware(
     CORSMiddleware,
@@ -32,6 +63,22 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Optional: Add custom authentication middleware to work with BetterAuth
+@app.middleware("http")
+async def auth_middleware(request: Request, call_next):
+    """Middleware to check authentication status from BetterAuth"""
+    # Check if user is authenticated via BetterAuth session
+    session_cookie = request.cookies.get("better-auth.session_token")
+    if session_cookie:
+        # In a real implementation, you'd verify this token with BetterAuth API
+        # For now, we'll just add a placeholder for authenticated user
+        request.state.user = {"id": "authenticated_user", "email": "user@example.com"}
+    else:
+        request.state.user = None
+
+    response = await call_next(request)
+    return response
 
 # Pydantic models
 class QueryRequest(BaseModel):
@@ -72,11 +119,14 @@ async def startup_event():
         raise
 
 @app.post("/ask", response_model=QueryResponse)
-async def ask_rag(request: QueryRequest):
+async def ask_rag(request: QueryRequest, current_user=Depends(get_current_user)):
     """
     Process a user query through the RAG agent and return the response
     """
-    logger.info(f"Processing query: {request.query[:50]}...")
+    # Check if user is authenticated (for premium features)
+    is_authenticated = current_user is not None
+
+    logger.info(f"Processing query (authenticated: {is_authenticated}): {request.query[:50]}...")
 
     try:
         # Validate input
@@ -85,6 +135,10 @@ async def ask_rag(request: QueryRequest):
 
         if len(request.query) > 2000:
             raise HTTPException(status_code=400, detail="Query too long, maximum 2000 characters")
+
+        # Optional: Different behavior for authenticated users
+        if not is_authenticated:
+            logger.info("Unauthenticated user - may have limited access in production")
 
         # Process query through RAG agent
         response = rag_agent.query_agent(request.query)
@@ -123,6 +177,11 @@ async def ask_rag(request: QueryRequest):
             status="error"
         )
 
+class AuthStatusResponse(BaseModel):
+    authenticated: bool
+    user: Optional[Dict] = None
+    message: str
+
 @app.get("/health", response_model=HealthResponse)
 async def health_check():
     """
@@ -132,6 +191,23 @@ async def health_check():
         status="healthy",
         message="RAG Agent API is running"
     )
+
+@app.get("/auth-status", response_model=AuthStatusResponse)
+async def auth_status(current_user=Depends(get_current_user)):
+    """
+    Check authentication status
+    """
+    if current_user:
+        return AuthStatusResponse(
+            authenticated=True,
+            user=current_user,
+            message="User is authenticated"
+        )
+    else:
+        return AuthStatusResponse(
+            authenticated=False,
+            message="User is not authenticated"
+        )
 
 # For running with uvicorn
 if __name__ == "__main__":
