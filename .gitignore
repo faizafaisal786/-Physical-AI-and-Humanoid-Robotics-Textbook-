@@ -1,8 +1,9 @@
 # Dependencies
-node modules/
-
-/.pnp
-.pnp.js
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 
 # Docusaurus
 .docusaurus/
@@ -47,6 +48,57 @@ Thumbs.db
 # Coverage
 coverage/
 .nyc_output/
+
+# Python virtual environments
+venv/
+env/
+ENV/
+
+# Database files (for local development)
+chroma_db/
+
+# Binary files
+*.ico
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.woff
+*.woff2
+*.ttf
+*.eot
+
+# Node binary files
+*.node
+
+# Exclude all docs except what's needed
+docs/
+specs/
+skills/
+static/
+src/
+docusaurus_textbook/
+scripts/
+rag_chatbot/
+backend/agent.py
+backend/api.py
+backend/app.py
+backend/auth_routes.py
+backend/auth_utils.py
+backend/database.py
+backend/dependencies.py
+backend/init_db.py
+backend/main.py
+backend/models.py
+backend/products_api.py
+backend/pyproject.toml
+backend/README.md
+backend/requirements.txt
+backend/retrieving.py
+backend/schemas.py
+backend/sdk.md
+backend/test_auth.py
 
 # Testing
 .jest/

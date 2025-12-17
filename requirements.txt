@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # RAG Chatbot Dependencies
 # Core AI and Vector Database
 cohere>=4.32
@@ -24,5 +25,8 @@ pypdf>=3.0.0
 openai
 faiss-cpu
 requests
+=======
+altair
+pandas
 streamlit
 >>>>>>> 551c3f2e713f5139741826e1c6e49e0b0357c9bb

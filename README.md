@@ -1,23 +1,5 @@
----
-title: Physical AI and Humanoid Robotics Textbook
-emoji: 🤖
-colorFrom: blue
-colorTo: red
-sdk: streamlit
-sdk_version: 1.31.0
-app_file: streamlit_app.py
-pinned: false
-short_description: AI-powered robotics textbook with RAG chatbot
-tags:
-- streamlit
-- robotics
-- ai
-- education
-- rag
-- chatbot
----
-
-# Physical AI and Humanoid Robotics Textbook
+<<<<<<< HEAD
+"# Physical AI and Humanoid Robotics Textbook
 
 An interactive textbook for learning about Physical AI and Humanoid Robotics, featuring a RAG-powered chatbot for querying the content.
 
@@ -66,4 +48,25 @@ Physical-AI-and-Humanoid-Robotics-Textbook/
 - **Backend**: Python
 - **LLM**: Cohere Command-R-Plus
 - **Vector Database**: ChromaDB
-- **Embeddings**: Cohere Embeddings
+- **Embeddings**: Cohere Embeddings" 
+=======
+---
+title: Physical AI And Humanoid Robotics Textbook
+emoji: 🚀
+colorFrom: red
+colorTo: red
+sdk: docker
+app_port: 8501
+tags:
+- streamlit
+pinned: false
+short_description: Streamlit template space
+---
+
+# Welcome to Streamlit!
+
+Edit `/src/streamlit_app.py` to customize this app to your heart's desire. :heart:
+
+If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
+forums](https://discuss.streamlit.io).
+>>>>>>> 551c3f2e713f5139741826e1c6e49e0b0357c9bb
