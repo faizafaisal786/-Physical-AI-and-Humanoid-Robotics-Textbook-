@@ -1,72 +1,91 @@
-<<<<<<< HEAD
-"# Physical AI and Humanoid Robotics Textbook
+# Physical AI & Humanoid Robotics Textbook - RAG Chatbot
 
-An interactive textbook for learning about Physical AI and Humanoid Robotics, featuring a RAG-powered chatbot for querying the content.
-
-## Project Structure
-
-```
-Physical-AI-and-Humanoid-Robotics-Textbook/
-│
-├── streamlit_app.py        # Main Streamlit frontend for the RAG chatbot
-├── backend/                # Backend logic for RAG processing
-│   ├── rag.py             # RAG pipeline implementation
-│   └── utils.py           # Vector store utilities
-│
-├── requirements.txt        # Python dependencies
-├── README.md              # This file
-└── .gitignore             # Git ignore rules
-```
+This project implements a Retrieval-Augmented Generation (RAG) chatbot for the Physical AI & Humanoid Robotics textbook. The chatbot can answer questions about the textbook content using advanced language models.
 
 ## Features
 
-- **Interactive Chatbot**: Ask questions about robotics concepts using natural language
-- **RAG Technology**: Retrieval-Augmented Generation for accurate, context-aware answers
-- **Document Sources**: View source documents and relevance scores for transparency
-- **Modular Architecture**: Clean separation between frontend and backend logic
+- Question answering using textbook content
+- Support for both Cohere and Hugging Face models
+- Vector database for efficient document retrieval
+- Streamlit web interface
 
-## Setup
+## Setup Instructions
 
-1. Install dependencies:
+1. Clone the repository
+2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
+3. Set up environment variables:
+   - Copy `.env.example` to `.env` and fill in your API keys
+   - For Cohere: Get your API key from [Cohere](https://dashboard.cohere.com/api-keys)
+   - For Hugging Face: Get your token from [Hugging Face](https://huggingface.co/settings/tokens)
 
-2. Set up your Cohere API key:
+4. Set up the vector database:
    ```bash
-   export COHERE_API_KEY="your-api-key-here"
+   # Run the setup script to create the vector database from textbook content
+   # (You'll need to create this script based on your document ingestion process)
    ```
 
-3. Run the application:
+5. Run the Streamlit app:
    ```bash
    streamlit run streamlit_app.py
    ```
 
-## Technologies Used
+## Hugging Face Integration
 
-- **Frontend**: Streamlit
-- **Backend**: Python
-- **LLM**: Cohere Command-R-Plus
-- **Vector Database**: ChromaDB
-- **Embeddings**: Cohere Embeddings" 
-=======
----
-title: Physical AI And Humanoid Robotics Textbook
-emoji: 🚀
-colorFrom: red
-colorTo: red
-sdk: docker
-app_port: 8501
-tags:
-- streamlit
-pinned: false
-short_description: Streamlit template space
----
+This project includes secure integration with Hugging Face models. To use Hugging Face models:
 
-# Welcome to Streamlit!
+1. **Get a Hugging Face token**:
+   - Go to [Hugging Face Settings → Access Tokens](https://huggingface.co/settings/tokens)
+   - Create a new token with appropriate permissions
 
-Edit `/src/streamlit_app.py` to customize this app to your heart's desire. :heart:
+2. **Configure your environment**:
+   - Add your token to `.env` as `HF_TOKEN=your_token_here`
+   - Never commit your token to version control
 
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
->>>>>>> 551c3f2e713f5139741826e1c6e49e0b0357c9bb
+3. **Run with Hugging Face models**:
+   - The Streamlit app will allow you to select Hugging Face as a provider
+   - Choose from various available models
+
+## Security Best Practices
+
+- **Never commit API tokens** to version control
+- Store tokens in environment variables
+- Use the `.env.example` file as a template, but don't commit your actual `.env` file
+- Regularly rotate your API tokens
+- Keep tokens in a secure location, separate from your source code
+
+## Project Structure
+
+- `streamlit_app.py`: Main web interface
+- `backend/`: RAG system implementation
+  - `rag.py`: Original RAG pipeline with Cohere
+  - `enhanced_rag.py`: Enhanced pipeline with both Cohere and Hugging Face support
+  - `hf_utils.py`: Hugging Face utilities with secure token management
+  - `config.py`: Configuration management
+  - `utils.py`: Utility functions
+- `requirements.txt`: Python dependencies
+- `.env.example`: Environment variable template
+
+## Supported Models
+
+### Cohere Models
+- command-r-plus-08-2024
+- command-r-08-2024
+- command-nightly
+
+### Hugging Face Models
+- microsoft/DialoGPT-medium
+- facebook/blenderbot-400M-distill
+- gpt2
+- facebook/opt-350m
+- (Plus many others depending on availability)
+
+## Troubleshooting
+
+If you encounter issues:
+1. Check that your API keys are correctly set in the `.env` file
+2. Ensure required dependencies are installed
+3. Verify that your document database has been created
+4. Check the console for any error messages

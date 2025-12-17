@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # RAG Chatbot Dependencies
 # Core AI and Vector Database
 cohere>=4.32
@@ -7,6 +6,12 @@ langchain>=0.1.5
 langchain-cohere>=0.1.5
 langchain-community>=0.0.19
 langchain-text-splitters>=0.0.1
+
+# Hugging Face Integration
+transformers>=4.21.0
+torch>=1.13.0
+huggingface-hub>=0.14.0
+langchain-huggingface>=0.0.1
 
 # UI Framework
 streamlit>=1.31.0
@@ -25,8 +30,3 @@ pypdf>=3.0.0
 openai
 faiss-cpu
 requests
-=======
-altair
-pandas
-streamlit
->>>>>>> 551c3f2e713f5139741826e1c6e49e0b0357c9bb

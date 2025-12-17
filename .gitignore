@@ -4,6 +4,8 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+node_modules/
+docusaurus_textbook/static/img/*.ico
 
 # Docusaurus
 .docusaurus/

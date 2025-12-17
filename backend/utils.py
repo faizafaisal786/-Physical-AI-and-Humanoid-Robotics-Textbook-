@@ -16,28 +16,33 @@ logger = logging.getLogger(__name__)
 
 
 class VectorStoreManager:
-    """Manages ChromaDB vector store with Cohere embeddings"""
+    """Manages ChromaDB vector store with configurable embeddings"""
 
-    def __init__(self, collection_name: str = "rag_chatbot", persist_directory: str = "./chroma_db"):
+    def __init__(self, collection_name: str = "rag_chatbot", persist_directory: str = "./chroma_db", embeddings=None):
         """
         Initialize vector store manager
 
         Args:
             collection_name: Name of the ChromaDB collection
             persist_directory: Directory to persist the database
+            embeddings: Embedding function to use (defaults to Cohere if None)
         """
         self.collection_name = collection_name
         self.persist_directory = persist_directory
 
-        # Check for Cohere API key
-        if not os.getenv("COHERE_API_KEY"):
-            raise ValueError("COHERE_API_KEY not found in environment variables")
+        # Initialize embeddings based on provided or default
+        if embeddings is not None:
+            self.embeddings = embeddings
+            logger.info("Using provided embeddings")
+        else:
+            # Default to Cohere embeddings
+            if not os.getenv("COHERE_API_KEY"):
+                raise ValueError("COHERE_API_KEY not found in environment variables")
 
-        # Initialize Cohere embeddings
-        logger.info("Initializing Cohere embeddings...")
-        self.embeddings = CohereEmbeddings(
-            model="embed-english-v3.0"  # Efficient and cost-effective
-        )
+            logger.info("Initializing Cohere embeddings...")
+            self.embeddings = CohereEmbeddings(
+                model="embed-english-v3.0"  # Efficient and cost-effective
+            )
 
         # Initialize or load vector store
         self.vector_store: Optional[Chroma] = None
