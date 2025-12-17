@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAuth } from '../lib/auth-client';
+import { useAuth } from '../lib/auth-client.js';
 
 const UserProfile = () => {
   const { user, isLoading } = useAuth();

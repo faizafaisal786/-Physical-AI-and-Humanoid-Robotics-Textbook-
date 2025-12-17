@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-import { useAuth } from '../lib/auth-client';
+import { useAuth } from '../lib/auth-client.js';
 
 function DashboardPage() {
   const { user, signOut } = useAuth();

@@ -1,10 +1,10 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-import { useAuth } from '../lib/auth-client';
+import { useAuth } from '../lib/auth-client.js';
 
 function LoginPage() {
   const { signIn } = useAuth();
-  
+
   const handleGoogleLogin = () => {
     signIn.social({
       provider: 'google',
@@ -30,7 +30,7 @@ function LoginPage() {
               </div>
               <div className="card__body">
                 <div className="button-group button-group--block">
-                  <button 
+                  <button
                     className="button button--secondary"
                     onClick={handleGoogleLogin}
                   >
@@ -38,14 +38,14 @@ function LoginPage() {
                   </button>
                 </div>
                 <div className="margin-top--md button-group button-group--block">
-                  <button 
+                  <button
                     className="button button--secondary"
                     onClick={handleGithubLogin}
                   >
                     Sign in with GitHub
                   </button>
                 </div>
-                
+
                 <div className="margin-top--md">
                   <p>Or create an account:</p>
                   <a href="/register" className="button button--primary button--block">

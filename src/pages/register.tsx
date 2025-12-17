@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '@theme/Layout';
-import { useAuth } from '../lib/auth-client';
+import { useAuth } from '../lib/auth-client.js';
 
 function RegisterPage() {
   const { signUp } = useAuth();
@@ -14,7 +14,7 @@ function RegisterPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    
+
     try {
       await signUp.email({
         name: formData.name,
@@ -81,7 +81,7 @@ function RegisterPage() {
                     Register
                   </button>
                 </form>
-                
+
                 <div className="margin-top--md">
                   <p>Already have an account? <a href="/login">Sign in</a></p>
                 </div>

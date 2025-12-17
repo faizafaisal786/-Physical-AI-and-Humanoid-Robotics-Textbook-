@@ -1,6 +1,6 @@
 import React from 'react';
 import NavbarItem from '@theme/NavbarItem';
-import { useAuth } from '../lib/auth-client';
+import { useAuth } from '../lib/auth-client.js';
 
 const AuthAwareNavbar = () => {
   const { user, signOut } = useAuth();
