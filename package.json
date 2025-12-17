@@ -33,7 +33,6 @@
     "clsx": "^2.1.1",
     "express": "^5.2.1",
     "flexsearch": "^0.8.212",
-    "http-proxy-middleware": "^3.0.5",
     "prism-react-renderer": "^2.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
@@ -42,6 +41,7 @@
     "@docusaurus/module-type-aliases": "^3.7.0",
     "@docusaurus/tsconfig": "^3.7.0",
     "@docusaurus/types": "^3.7.0",
+    "http-proxy-middleware": "^3.0.5",
     "typescript": "~5.7.2"
   },
   "engines": {
