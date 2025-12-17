@@ -1,5 +1,5 @@
 # Dependencies
-node modules
+node modules/
 
 /.pnp
 .pnp.js
@@ -57,3 +57,4 @@ coverage/
 
 # Temporary artifacts
 nul
+.vercel
