@@ -1,4 +1,23 @@
-"# Physical AI and Humanoid Robotics Textbook
+---
+title: Physical AI and Humanoid Robotics Textbook
+emoji: 🤖
+colorFrom: blue
+colorTo: red
+sdk: streamlit
+sdk_version: 1.31.0
+app_file: streamlit_app.py
+pinned: false
+short_description: AI-powered robotics textbook with RAG chatbot
+tags:
+- streamlit
+- robotics
+- ai
+- education
+- rag
+- chatbot
+---
+
+# Physical AI and Humanoid Robotics Textbook
 
 An interactive textbook for learning about Physical AI and Humanoid Robotics, featuring a RAG-powered chatbot for querying the content.
 
@@ -47,4 +66,4 @@ Physical-AI-and-Humanoid-Robotics-Textbook/
 - **Backend**: Python
 - **LLM**: Cohere Command-R-Plus
 - **Vector Database**: ChromaDB
-- **Embeddings**: Cohere Embeddings" 
+- **Embeddings**: Cohere Embeddings
