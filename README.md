@@ -4,7 +4,7 @@ emoji: 🤖
 colorFrom: blue
 colorTo: purple
 sdk: streamlit
-sdk_version: "1.43.0"
+sdk_version: 1.43.0
 app_file: deploy_app.py
 pinned: false
 ---
@@ -32,7 +32,7 @@ An intelligent chatbot powered by Retrieval-Augmented Generation (RAG) that answ
 This Space requires API keys to function. Add them in **Space Settings → Repository Secrets**:
 
 - `COHERE_API_KEY`: Get from [Cohere Dashboard](https://dashboard.cohere.com/api-keys)
-- `HF_TOKEN`: Get from [Hugging Face Settings](https://huggingface.co/settings/tokens)
+- `HF_TOKEN`: (Optional) Get from [Hugging Face Settings](https://huggingface.co/settings/tokens)
 
 ## 📚 Supported Topics
 
