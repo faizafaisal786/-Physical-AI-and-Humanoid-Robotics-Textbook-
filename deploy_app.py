@@ -6,6 +6,13 @@ import os
 import sys
 from pathlib import Path
 
+# MUST BE FIRST - Page config
+st.set_page_config(
+    page_title="Physical AI & Humanoid Robotics Chatbot",
+    page_icon="🤖",
+    layout="wide"
+)
+
 # Setup vector database on first run
 @st.cache_resource
 def setup_database():
@@ -15,7 +22,10 @@ def setup_database():
         with st.spinner("Setting up vector database for first time... This may take a few minutes."):
             try:
                 from setup_vectordb_hf import setup_vector_db
-                setup_vector_db()
+                success = setup_vector_db()
+                if not success:
+                    st.error("Failed to setup database. Please check logs.")
+                    return False
             except Exception as e:
                 st.error(f"Failed to setup database: {e}")
                 return False
@@ -26,13 +36,6 @@ setup_database()
 
 from backend.enhanced_rag import ask_question_with_provider
 from backend.config import validate_environment
-
-# Page config
-st.set_page_config(
-    page_title="Physical AI & Humanoid Robotics Chatbot",
-    page_icon="🤖",
-    layout="wide"
-)
 
 # Validate environment at startup
 validation_result = validate_environment()
