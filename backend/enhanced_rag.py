@@ -360,5 +360,141 @@ def main():
     print("="*70)
 
 
+async def generate_study_tasks(
+    topic: Optional[str] = None,
+    chapter_id: Optional[str] = None,
+    difficulty: str = "medium",
+    count: int = 3,
+    task_types: Optional[List[str]] = None
+) -> List[Dict]:
+    """
+    Generate AI-powered study tasks based on topic or chapter
+
+    Args:
+        topic: Topic to generate tasks for
+        chapter_id: Chapter ID to generate tasks for
+        difficulty: Difficulty level (easy, medium, hard)
+        count: Number of tasks to generate
+        task_types: Types of tasks to generate (study, exercise, quiz, review)
+
+    Returns:
+        List of task dictionaries with title, description, type, etc.
+    """
+    try:
+        # Initialize RAG pipeline with Cohere
+        rag = EnhancedRAGPipeline(model_provider="cohere")
+
+        # Build context query
+        context_query = f"Information about {topic or chapter_id}"
+
+        # Get relevant context from RAG
+        context_result = rag.ask_question(context_query)
+        context = context_result.get("answer", "")
+
+        # Build prompt for task generation
+        task_types_str = ", ".join(task_types) if task_types else "study, exercise, quiz, review"
+
+        prompt = f"""Based on the following educational content about {topic or chapter_id},
+generate {count} learning tasks for students at {difficulty} difficulty level.
+
+Context:
+{context}
+
+Generate tasks of these types: {task_types_str}
+
+For each task, provide:
+1. Title (concise, actionable)
+2. Description (clear instructions)
+3. Task type (study/exercise/quiz/review/reading/practice)
+4. Priority (low/medium/high)
+5. Estimated duration in minutes
+
+Format your response as a JSON array of tasks. Example:
+[
+  {{
+    "title": "Review Chapter 1: Introduction to ROS2",
+    "description": "Read and summarize the key concepts from Chapter 1",
+    "task_type": "review",
+    "priority": "high",
+    "estimated_duration": 30
+  }}
+]
+
+Generate the tasks now:"""
+
+        # Get AI response
+        import json
+        ai_response = rag.ask_question(prompt)
+        response_text = ai_response.get("answer", "")
+
+        # Try to parse JSON from response
+        try:
+            # Find JSON array in response
+            start_idx = response_text.find("[")
+            end_idx = response_text.rfind("]") + 1
+
+            if start_idx != -1 and end_idx != 0:
+                json_str = response_text[start_idx:end_idx]
+                tasks = json.loads(json_str)
+            else:
+                # Fallback: create default tasks
+                tasks = _create_default_tasks(topic or chapter_id, count, difficulty)
+        except json.JSONDecodeError:
+            # Fallback: create default tasks
+            tasks = _create_default_tasks(topic or chapter_id, count, difficulty)
+
+        return tasks[:count]  # Ensure we return exactly count tasks
+
+    except Exception as e:
+        logger.error(f"Error generating AI tasks: {e}")
+        # Return default tasks on error
+        return _create_default_tasks(topic or chapter_id, count, difficulty)
+
+
+def _create_default_tasks(topic: str, count: int, difficulty: str) -> List[Dict]:
+    """Create default tasks when AI generation fails"""
+    tasks = []
+
+    task_templates = [
+        {
+            "title": f"Study: {topic}",
+            "description": f"Read and understand the key concepts about {topic}",
+            "task_type": "study",
+            "priority": "high",
+            "estimated_duration": 30
+        },
+        {
+            "title": f"Exercise: Practice {topic}",
+            "description": f"Complete practice exercises related to {topic}",
+            "task_type": "exercise",
+            "priority": "medium",
+            "estimated_duration": 45
+        },
+        {
+            "title": f"Quiz: Test knowledge on {topic}",
+            "description": f"Take a quiz to test your understanding of {topic}",
+            "task_type": "quiz",
+            "priority": "medium",
+            "estimated_duration": 20
+        },
+        {
+            "title": f"Review: Summarize {topic}",
+            "description": f"Write a summary of what you learned about {topic}",
+            "task_type": "review",
+            "priority": "low",
+            "estimated_duration": 25
+        },
+        {
+            "title": f"Reading: Deep dive into {topic}",
+            "description": f"Read additional resources about {topic}",
+            "task_type": "reading",
+            "priority": "low",
+            "estimated_duration": 40
+        }
+    ]
+
+    return task_templates[:count]
+
+
 if __name__ == "__main__":
     main()
