@@ -1,114 +1,284 @@
-# Dependencies
-node_modules/
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-node_modules/
-docusaurus_textbook/static/img/*.ico
+# ==========================================
+# Physical AI & Humanoid Robotics Textbook
+# Comprehensive .gitignore
+# ==========================================
 
-# Docusaurus
+# ============ Node.js ============
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+.env
+ nul
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Package manager lock files (keep only one)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# ============ Python ============
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+chatbot/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# ============ Docusaurus ============
 .docusaurus/
 build/
-.cache/
+.cache-loader/
+.DS_Store
 
-# Production
-dist/
+# Docusaurus build output
+docusaurus_textbook/.docusaurus/
+docusaurus_textbook/build/
+docusaurus_textbook/.cache-loader/
 
-# Environment variables
+# Static assets that might be generated
+static/img/.DS_Store
+
+# ============ Database Files ============
+*.db
+*.sqlite
+*.sqlite3
+app.db
+chroma.sqlite3
+chroma_db/
+
+# Vector databases
+chroma_db/
+qdrant_storage/
+
+# ============ Environment & Config ============
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env.*.local
 
-# Logs
+# Config files with secrets
+config.local.js
+config.local.json
+
+# ============ IDE & Editors ============
+# VSCode
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+.idea_modules/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# ============ Operating System ============
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============ Logs ============
+logs/
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
-*.log
+.pnpm-debug.log*
 
-# TypeScript
-*.tsbuildinfo
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-
-# OS
-Thumbs.db
-
-# Temporary files
+# ============ Temporary Files ============
+tmp/
+temp/
 *.tmp
+*.bak
+*.swp
 .temp/
 
-# Coverage
+# ============ Build & Deployment ============
+# Production builds
+build/
+dist/
+out/
+.next/
+.nuxt/
+
+# Deployment directories
+hf-deploy-temp/
+hf-space-deploy/
+deploy/
+
+# ============ Testing ============
 coverage/
 .nyc_output/
+test-results/
+cypress/videos/
+cypress/screenshots/
 
-# Python virtual environments
-venv/
-env/
-ENV/
+# ============ Dependencies & Packages ============
+# Node
+node_modules/
+node_modulesaxios/
+bower_components/
 
-# Database files (for local development)
-chroma_db/
+# Python
+*.egg
+*.egg-info
+pip-log.txt
+pip-delete-this-directory.txt
 
-# Binary files
-*.ico
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
-*.woff
-*.woff2
-*.ttf
-*.eot
+# ============ Claude Code ============
+.claude/
+.specify/
 
-# Node binary files
-*.node
+# ============ Miscellaneous ============
+# Vercel
+.vercel/
 
-# Exclude all docs except what's needed
-docs/
-specs/
-skills/
-static/
-src/
-docusaurus_textbook/
-scripts/
-rag_chatbot/
-backend/agent.py
-backend/api.py
-backend/app.py
-backend/auth_routes.py
-backend/auth_utils.py
-backend/database.py
-backend/dependencies.py
-backend/init_db.py
-backend/main.py
-backend/models.py
-backend/products_api.py
-backend/pyproject.toml
-backend/README.md
-backend/requirements.txt
-backend/retrieving.py
-backend/schemas.py
-backend/sdk.md
-backend/test_auth.py
+# Backup files
+*.backup
+*.old
+*.orig
 
-# Testing
-.jest/
+# Compressed files (usually not needed in git)
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
 
-# Claude Code
-.claude/settings.local.json
-.claude/todos/
+# Large media files (if not needed)
+# *.mp4
+# *.avi
+# *.mov
+# *.mp3
+# *.wav
 
-# Temporary artifacts
+# Lock files for system
+*.lock
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# Documentation builds (if auto-generated)
+docs/_build/
+site/
+
+# ============ Project Specific ============
+# RAG chatbot virtual env
+rag_chatbot/chatbot/
+
+# Task outputs from Claude
+tasks/
+
+# Temp deployment folders
+hf-deploy-temp/
+hf-space-deploy/
+
+# Output files
 nul
-.vercel
+*.output
+
+# ============ Keep These (Examples) ============
+# !.gitkeep
+# !README.md
+# !LICENSE
+# !.github/

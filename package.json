@@ -1,0 +1,27 @@
+{
+  "name": "physical-ai-humanoid-robotics-textbook",
+  "version": "1.0.0",
+  "description": "Physical AI & Humanoid Robotics Textbook with Authentication and Task Management",
+  "scripts": {
+    "start": "cd docusaurus_textbook && npm start",
+    "build": "cd docusaurus_textbook && npm run build",
+    "serve": "cd docusaurus_textbook && npm run serve",
+    "install-frontend": "cd docusaurus_textbook && npm install",
+    "install-backend": "cd backend && pip install -r requirements.txt",
+    "backend": "cd backend && uvicorn app:app --reload --host 0.0.0.0 --port 8000",
+    "dev": "concurrently \"npm run backend\" \"npm run start\"",
+    "setup": "npm run install-frontend && npm run install-backend"
+  },
+  "keywords": [
+    "physical-ai",
+    "humanoid-robotics",
+    "textbook",
+    "education",
+    "docusaurus"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
