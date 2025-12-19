@@ -1,0 +1,90 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Streamlit app (not used in Vercel deployment)
+app.py
+rag_pipeline.py
+vector_store.py
+ingest_documents.py
+setup_db.py
+deploy_hf.py
+check_env.py
+
+# ChromaDB (used for local development only)
+chroma_db/
+
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Docusaurus
+.docusaurus/
+.cache/
+
+# Environment files (use Vercel environment variables instead)
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Test files
+tests/
+test/
+*.test.js
+*.spec.js
+
+# Documentation source (only deploy built docs)
+docs/
+img/history/
+
+# Specification files
+specs/
+history/
+.specify/
+.claude/
+
+# Large files
+*.pdf
+*.zip
+*.tar.gz
