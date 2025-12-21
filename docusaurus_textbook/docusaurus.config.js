@@ -72,6 +72,11 @@ const config = {
             label: 'Textbook',
           },
           {
+            to: '/chatbot',
+            label: 'AI Chatbot',
+            position: 'left',
+          },
+          {
             type: 'localeDropdown',
             position: 'right',
             i18n: {
