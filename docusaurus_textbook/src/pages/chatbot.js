@@ -24,10 +24,18 @@ export default function Chatbot() {
             marginBottom: '20px',
           }}
         >
-          <h1 style={{ fontSize: '36px', marginBottom: '10px' }}>
+          <h1 style={{
+            fontSize: '36px',
+            marginBottom: '10px',
+            background: 'linear-gradient(135deg, #1e40af, #7c3aed)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            fontWeight: 'bold'
+          }}>
             AI Chatbot - Ask About the Textbook
           </h1>
-          <p style={{ fontSize: '18px', color: '#666', marginBottom: '20px' }}>
+          <p style={{ fontSize: '18px', color: '#64748b', marginBottom: '20px', lineHeight: '1.6' }}>
             Ask questions about Physical AI and Humanoid Robotics. The chatbot uses RAG (Retrieval-Augmented Generation) to answer based on the textbook content.
           </p>
         </div>
@@ -38,10 +46,10 @@ export default function Chatbot() {
             maxWidth: '1400px',
             height: 'calc(100vh - 200px)',
             minHeight: '600px',
-            border: '2px solid #e0e0e0',
-            borderRadius: '12px',
+            border: '3px solid #1e40af',
+            borderRadius: '16px',
             overflow: 'hidden',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+            boxShadow: '0 10px 30px rgba(30, 64, 175, 0.2)',
           }}
         >
           <iframe
@@ -60,15 +68,16 @@ export default function Chatbot() {
         <div
           style={{
             marginTop: '20px',
-            padding: '15px',
-            background: '#f0f7ff',
-            borderRadius: '8px',
+            padding: '20px',
+            background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
+            borderRadius: '12px',
             maxWidth: '1400px',
             width: '100%',
+            borderLeft: '4px solid #1e40af',
           }}
         >
-          <p style={{ margin: 0, fontSize: '14px', color: '#555' }}>
-            <strong>Note:</strong> This chatbot is powered by AI and uses information from the Physical AI & Humanoid Robotics Textbook.
+          <p style={{ margin: 0, fontSize: '15px', color: '#1e293b', lineHeight: '1.6' }}>
+            <strong style={{ color: '#1e40af' }}>Note:</strong> This chatbot is powered by AI and uses information from the Physical AI & Humanoid Robotics Textbook.
             It can answer questions about ROS 2, simulation, hardware, VLA systems, and humanoid robotics design.
           </p>
         </div>

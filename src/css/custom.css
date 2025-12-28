@@ -8,36 +8,36 @@
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 :root {
-  /* Primary Colors - Vibrant Blue/Cyan Gradient */
-  --ifm-color-primary: #0ea5e9;
-  --ifm-color-primary-dark: #0284c7;
-  --ifm-color-primary-darker: #0369a1;
-  --ifm-color-primary-darkest: #075985;
-  --ifm-color-primary-light: #38bdf8;
-  --ifm-color-primary-lighter: #7dd3fc;
-  --ifm-color-primary-lightest: #bae6fd;
+  /* Primary Colors - Professional Deep Blue */
+  --ifm-color-primary: #1e40af;
+  --ifm-color-primary-dark: #1e3a8a;
+  --ifm-color-primary-darker: #1e3a8a;
+  --ifm-color-primary-darkest: #172554;
+  --ifm-color-primary-light: #3b82f6;
+  --ifm-color-primary-lighter: #60a5fa;
+  --ifm-color-primary-lightest: #93c5fd;
 
-  /* Secondary Colors - Purple/Violet for Accents */
-  --color-secondary: #8b5cf6;
-  --color-secondary-dark: #7c3aed;
-  --color-secondary-light: #a78bfa;
+  /* Secondary Colors - Royal Purple for Accents */
+  --color-secondary: #7c3aed;
+  --color-secondary-dark: #6d28d9;
+  --color-secondary-light: #8b5cf6;
 
   /* Accent Colors */
-  --color-accent-cyan: #06b6d4;
-  --color-accent-purple: #a855f7;
-  --color-accent-pink: #ec4899;
-  --color-accent-orange: #f59e0b;
+  --color-accent-cyan: #0891b2;
+  --color-accent-purple: #7c3aed;
+  --color-accent-pink: #db2777;
+  --color-accent-orange: #ea580c;
 
   /* Success/Warning/Danger */
-  --ifm-color-success: #10b981;
-  --ifm-color-success-dark: #059669;
-  --ifm-color-warning: #f59e0b;
-  --ifm-color-danger: #ef4444;
+  --ifm-color-success: #059669;
+  --ifm-color-success-dark: #047857;
+  --ifm-color-warning: #ea580c;
+  --ifm-color-danger: #dc2626;
 
   /* Background & Surfaces */
   --ifm-background-color: #ffffff;
   --ifm-background-surface-color: #f8fafc;
-  --color-surface-elevated: #ffffff;
+  --color-surface-elevated: #f1f5f9;
 
   /* Text Colors */
   --ifm-color-content: #1e293b;
@@ -67,22 +67,22 @@
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
-  --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #a855f7 100%);
-  --gradient-accent: linear-gradient(135deg, #ec4899 0%, #f59e0b 100%);
-  --gradient-success: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+  /* Gradients - Professional Blue to Purple */
+  --gradient-primary: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+  --gradient-secondary: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  --gradient-accent: linear-gradient(135deg, #db2777 0%, #ea580c 100%);
+  --gradient-success: linear-gradient(135deg, #059669 0%, #0891b2 100%);
 }
 
 /* Dark Mode Color Palette */
 [data-theme='dark'] {
-  --ifm-color-primary: #38bdf8;
-  --ifm-color-primary-dark: #0ea5e9;
-  --ifm-color-primary-darker: #0284c7;
-  --ifm-color-primary-darkest: #0369a1;
-  --ifm-color-primary-light: #7dd3fc;
-  --ifm-color-primary-lighter: #bae6fd;
-  --ifm-color-primary-lightest: #e0f2fe;
+  --ifm-color-primary: #60a5fa;
+  --ifm-color-primary-dark: #3b82f6;
+  --ifm-color-primary-darker: #2563eb;
+  --ifm-color-primary-darkest: #1e40af;
+  --ifm-color-primary-light: #93c5fd;
+  --ifm-color-primary-lighter: #bfdbfe;
+  --ifm-color-primary-lightest: #dbeafe;
 
   --color-secondary: #a78bfa;
   --color-secondary-dark: #8b5cf6;
@@ -125,11 +125,29 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-h1 {
+/* Main H1 headings in docs */
+article h1 {
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* Section headings */
+article h2 {
+  color: var(--ifm-color-primary);
+  border-bottom: 3px solid var(--ifm-color-primary-lightest);
+  padding-bottom: 0.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+article h3 {
+  color: var(--ifm-color-primary-dark);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 /* Links with smooth transitions */
@@ -867,7 +885,7 @@ a:hover {
 
 /* Custom Auth Bar */
 .custom-auth-bar {
-  background: var(--ifm-color-primary-dark);
+  background: var(--ifm-color-primary);
   color: white;
   padding: 0.5rem 0;
   font-size: 0.9rem;
@@ -903,4 +921,147 @@ a:hover {
 
 [data-theme='dark'] .custom-auth-bar {
   background: var(--ifm-color-primary-darker);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Documentation Content Enhancements
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Better code blocks */
+.theme-code-block {
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--shadow-md);
+  margin: 1.5rem 0;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* Blockquotes */
+article blockquote {
+  border-left: 4px solid var(--ifm-color-primary);
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(124, 58, 237, 0.05));
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 var(--ifm-global-radius) var(--ifm-global-radius) 0;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-sm);
+  font-style: normal;
+}
+
+/* Lists */
+article ul, article ol {
+  line-height: 1.8;
+  margin: 1rem 0;
+}
+
+article li {
+  margin: 0.5rem 0;
+}
+
+/* Tables */
+article table {
+  border-radius: var(--ifm-global-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin: 1.5rem 0;
+}
+
+article thead {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+article th {
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+}
+
+article td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+article tbody tr:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* Horizontal rules */
+article hr {
+  border: none;
+  height: 3px;
+  background: var(--gradient-primary);
+  margin: 2.5rem 0;
+  border-radius: 2px;
+  opacity: 0.3;
+}
+
+/* Emphasis */
+article strong {
+  color: var(--ifm-color-primary);
+  font-weight: 700;
+}
+
+article em {
+  color: var(--color-secondary);
+}
+
+/* Inline code */
+article code {
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08));
+  color: var(--ifm-color-primary-dark);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+/* Links in documentation */
+article a {
+  color: var(--ifm-color-primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--ifm-color-primary-lighter);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: all 0.2s ease;
+}
+
+article a:hover {
+  color: var(--color-secondary);
+  text-decoration-color: var(--color-secondary);
+}
+
+/* Sidebar enhancements */
+.theme-doc-sidebar-container {
+  border-right: 2px solid var(--ifm-color-emphasis-200);
+}
+
+.theme-doc-sidebar-item-link {
+  transition: all 0.2s ease;
+}
+
+.theme-doc-sidebar-item-link:hover {
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08));
+  border-left: 3px solid var(--ifm-color-primary);
+  padding-left: calc(var(--ifm-menu-link-padding-horizontal) - 3px);
+}
+
+.menu__link--active {
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.12), rgba(124, 58, 237, 0.12));
+  border-left: 4px solid var(--ifm-color-primary);
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+/* Pagination */
+.pagination-nav__link {
+  border: 2px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  transition: all 0.3s ease;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(124, 58, 237, 0.05));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }

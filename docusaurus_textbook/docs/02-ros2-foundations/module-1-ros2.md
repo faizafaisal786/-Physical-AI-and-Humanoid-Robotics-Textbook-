@@ -11,9 +11,50 @@ objectives:
   - Model any humanoid robot using URDF/Xacro (conceptual guidance)
 ---
 
-# Module 1: The Robotic Nervous System - ROS 2
+<div style={{
+  background: 'linear-gradient(135deg, #1e40af, #7c3aed)',
+  padding: '50px 30px',
+  borderRadius: '20px',
+  marginBottom: '30px',
+  color: 'white',
+  boxShadow: '0 15px 50px rgba(30, 64, 175, 0.3)'
+}}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
+    <span style={{ fontSize: '48px' }}>🔧</span>
+    <div>
+      <div style={{ fontSize: '14px', opacity: 0.9, textTransform: 'uppercase', letterSpacing: '2px' }}>Module 1</div>
+      <h1 style={{ fontSize: '42px', margin: '5px 0', color: 'white' }}>The Robotic Nervous System - ROS 2</h1>
+    </div>
+  </div>
+  <p style={{ fontSize: '20px', lineHeight: '1.6', margin: '20px 0 0 0', maxWidth: '800px' }}>
+    Master the middleware that powers modern humanoid robots - from Tesla Bot to Boston Dynamics
+  </p>
+</div>
 
-## Decoding the Future of Humanoid Robotics
+<div style={{
+  background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(124, 58, 237, 0.05))',
+  padding: '25px',
+  borderRadius: '15px',
+  marginBottom: '30px',
+  border: '2px solid rgba(30, 64, 175, 0.1)'
+}}>
+  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
+    <div>
+      <div style={{ fontSize: '12px', color: '#7c3aed', fontWeight: 'bold', marginBottom: '5px' }}>⏱️ DURATION</div>
+      <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#1e40af' }}>6-8 hours</div>
+    </div>
+    <div>
+      <div style={{ fontSize: '12px', color: '#7c3aed', fontWeight: 'bold', marginBottom: '5px' }}>📚 PREREQUISITES</div>
+      <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#1e40af' }}>Python, Linux basics</div>
+    </div>
+    <div>
+      <div style={{ fontSize: '12px', color: '#7c3aed', fontWeight: 'bold', marginBottom: '5px' }}>🎯 LEVEL</div>
+      <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#1e40af' }}>Foundation</div>
+    </div>
+  </div>
+</div>
+
+## 🚀 Decoding the Future of Humanoid Robotics
 
 Welcome, future architects of physical intelligence! In this module we learn the **concepts and architecture** of ROS 2 and how it serves as the central framework for humanoid robotics.
 

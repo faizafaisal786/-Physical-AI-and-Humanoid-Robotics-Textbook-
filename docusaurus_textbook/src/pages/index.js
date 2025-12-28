@@ -12,7 +12,7 @@ export default function Home() {
         style={{
           padding: "80px 20px",
           textAlign: "center",
-          background: "linear-gradient(135deg, #0b0f19, #1f2a44)",
+          background: "linear-gradient(135deg, #1e40af, #7c3aed)",
           color: "white",
         }}
       >
@@ -193,7 +193,7 @@ export default function Home() {
       <section
         style={{
           padding: "90px 20px",
-          background: "#0b0f19",
+          background: "linear-gradient(135deg, #1e40af, #7c3aed)",
           color: "white",
           textAlign: "center",
         }}
@@ -240,12 +240,13 @@ const cardText = {
 
 const cardBtn = {
   textDecoration: "none",
-  background: "#0057ff",
+  background: "#1e40af",
   padding: "10px 16px",
   color: "white",
   borderRadius: "8px",
   fontSize: "15px",
   fontWeight: "bold",
+  transition: "all 0.3s ease",
 };
 
 const featureBox = {
